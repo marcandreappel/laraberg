@@ -17,10 +17,6 @@
     "spatie/laravel-sluggable": "^2.6",
     "marcandreappel/laravel-uuids": "^1.0"
   },
-  "require-dev": {
-    "orchestra/testbench": "^v6.15",
-    "phpunit/phpunit": "^9.3"
-  },
   "autoload": {
     "psr-4": {
       "MarcAndreAppel\\Laraberg\\": "src"
@@ -29,11 +25,6 @@
   "autoload-dev": {
     "psr-4": {
       "MarcAndreAppel\\Laraberg\\Test\\": "tests"
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": "MarcAndreAppel\\Laraberg\\LarabergServiceProvider"
     }
   }
 }
