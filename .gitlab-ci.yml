@@ -1,0 +1,10 @@
+stages:
+  - deploy
+
+release:
+  image: marcandreappel/semantic-release-gitlab-ci:release-0.1.0
+  stage: deploy
+  script:
+    - npx semantic-release --branches main
+  only:
+    - main
