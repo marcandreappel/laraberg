@@ -26,5 +26,10 @@
     "psr-4": {
       "MarcAndreAppel\\Laraberg\\Test\\": "tests"
     }
+  },
+  "extra": {
+    "laravel": {
+      "providers": "MarcAndreAppel\\Laraberg\\LarabergServiceProvider"
+    }
   }
 }
