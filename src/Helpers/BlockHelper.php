@@ -7,7 +7,6 @@ use MarcAndreAppel\Laraberg\Models\Block;
 
 class BlockHelper
 {
-
     public static function renderBlocks(string $html): string
     {
         // Replace reusable block ID with reusable block HTML

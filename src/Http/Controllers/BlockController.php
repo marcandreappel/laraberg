@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use MarcAndreAppel\Laraberg\Models\Block;
 
-class BlockController extends ApplicationController
+class BlockController extends Controller
 {
     protected Block $blockModel;
 
     public function __construct()
     {
-        $this->blockModel = config("laraberg.models.block");
+        $this->blockModel = config('laraberg.models.block');
         $this->blockModel = new $this->blockModel;
     }
 
