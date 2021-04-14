@@ -6,6 +6,9 @@ namespace MarcAndreAppel\Laraberg;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use MarcAndreAppel\Laraberg\Models\Content;
 
+/**
+ * @property Content larabergContent
+ */
 trait WithLaraberg
 {
     protected static function bootWithLaraberg(): void

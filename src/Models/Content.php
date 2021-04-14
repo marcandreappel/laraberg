@@ -5,21 +5,20 @@ namespace MarcAndreAppel\Laraberg\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use MarcAndreAppel\Laraberg\Helpers\EmbedHelper;
-use MarcAndreAppel\Laraberg\Helpers\BlockHelper;
 use MarcAndreAppel\Laraberg\Events\ContentCreated;
-use MarcAndreAppel\Laraberg\Events\ContentUpdated;
 use MarcAndreAppel\Laraberg\Events\ContentRendered;
+use MarcAndreAppel\Laraberg\Events\ContentUpdated;
+use MarcAndreAppel\Laraberg\Helpers\BlockHelper;
+use MarcAndreAppel\Laraberg\Helpers\EmbedHelper;
 use MarcAndreAppel\LaravelUuids\Uuids;
 
 /**
  * @property string rendered_content
+ * @property string raw_content
  */
 class Content extends Model
 {
     use Uuids;
-
-    public string $raw_content;
 
     protected $table = 'laraberg_contents';
 
@@ -41,6 +40,12 @@ class Content extends Model
         return $this->morphTo();
     }
 
+    public function setContent(string $html)
+    {
+        $this->raw_content = $this->fixEmptyImages($html);
+        $this->renderRaw();
+    }
+
     public function render(): string
     {
         $html = BlockHelper::renderBlocks($this->rendered_content);
@@ -48,12 +53,6 @@ class Content extends Model
         event(new ContentRendered($this));
 
         return '<div class="gutenberg__content wp-embed-responsive">'.$html.'</div>';
-    }
-
-    public function setContent(string $html)
-    {
-        $this->raw_content = $this->fixEmptyImages($html);
-        $this->renderRaw();
     }
 
     public function renderRaw(): string
@@ -65,7 +64,6 @@ class Content extends Model
         return $this->rendered_content;
     }
 
-    // @todo Remove this temporary fix for Image block crashing when no image is selected
     private function fixEmptyImages(string $html): string
     {
         $regex = '/<img(.*)\/>/';

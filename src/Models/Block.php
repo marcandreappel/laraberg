@@ -11,7 +11,10 @@ use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 /**
- * @method static where(string $string, string $id)
+ * @method static where(mixed $string, mixed $id)
+ * @property mixed raw_title
+ * @property string rendered_content
+ * @property string raw_content
  */
 class Block extends Model
 {
@@ -26,9 +29,6 @@ class Block extends Model
         'rendered_content',
         'updated_at'
     ];
-
-    private string $raw_content;
-    private string $rendered_content;
 
     public function render(): string
     {
