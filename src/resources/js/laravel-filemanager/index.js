@@ -52,14 +52,14 @@ export default function (config)
             this.openLFM(type, this.onSelect)
         }
 
-        openLFM = (type, cb) =>
+        openLFM = (type, callback) =>
         {
             const routePrefix = (config && config.prefix) ? config.prefix : '/filemanager'
             window.open(routePrefix + '?type=' + type, 'FileManager', 'width=900,height=600')
             window.SetUrl = function (items)
             {
                 if (items[0]) {
-                    cb(items[0].url, items[0].name)
+                    callback(items[0].url, items[0].name)
                 }
             }
         }
@@ -73,6 +73,7 @@ export default function (config)
 
     hooks.addFilter(
         'editor.MediaUpload',
+
         'core/edit-post/components/media-upload/replace-media-upload',
         () => LaravelFilemanager
     )

@@ -64,7 +64,8 @@ function disableWPBlocks()
         'core/calendar',
         'core/rss',
         'core/search',
-        'core/tag-cloud'
+        'core/tag-cloud',
+        'core/media-upload',
     ])
 }
 
