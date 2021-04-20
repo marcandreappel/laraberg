@@ -5,10 +5,11 @@ namespace MarcAndreAppel\Laraberg\Http\Controllers;
 
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Collection;
 
 class Controller extends BaseController
 {
-    public function ok(array $data = ['message' => 'ok'], int $code = 200): Response
+    public function ok(array|Collection $data = ['message' => 'ok'], int $code = 200): Response
     {
         return $this->response($data, $code);
     }
