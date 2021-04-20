@@ -13,8 +13,8 @@ class BlockController extends Controller
 
     public function __construct()
     {
-        $this->blockModel = config('laraberg.models.block');
-        $this->blockModel = new $this->blockModel;
+        $blockModel = config('laraberg.models.block');
+        $this->blockModel = new $blockModel;
     }
 
     public function index(): Response
