@@ -57,7 +57,7 @@ export const editorSettings = {
 data.dispatch('core/editor').disablePublishSidebar();
 
 // Disable tips
-data.dispatch('core/nux').disableTips();
+// data.dispatch('core/nux').disableTips();
 
 // Post properties to override
 export const overridePost = {}
