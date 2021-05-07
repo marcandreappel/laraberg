@@ -18,7 +18,7 @@ use MarcAndreAppel\LaravelUuids\Uuids;
  */
 class Content extends Model
 {
-    use Uuids;
+    use WithUuids;
 
     protected $table = 'laraberg_contents';
 

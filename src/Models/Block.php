@@ -18,7 +18,7 @@ use Spatie\Sluggable\SlugOptions;
  */
 class Block extends Model
 {
-    use HasSlug, Uuids;
+    use HasSlug, WithUuids;
 
     protected $table = 'laraberg_blocks';
     protected $appends = ['content', 'title'];

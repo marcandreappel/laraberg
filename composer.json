@@ -15,7 +15,7 @@
   "require": {
     "embed/embed": "^v3.4",
     "spatie/laravel-sluggable": "^2.6",
-    "marcandreappel/laravel-uuids": "^1.0"
+    "marcandreappel/laravel-uuids": "^2.0"
   },
   "autoload": {
     "psr-4": {
