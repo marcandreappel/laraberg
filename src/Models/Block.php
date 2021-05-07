@@ -6,7 +6,7 @@ namespace MarcAndreAppel\Laraberg\Models;
 use Illuminate\Database\Eloquent\Model;
 use MarcAndreAppel\Laraberg\Helpers\BlockHelper;
 use MarcAndreAppel\Laraberg\Helpers\EmbedHelper;
-use MarcAndreAppel\LaravelUuids\Uuids;
+use MarcAndreAppel\LaravelUuids\WithUuids;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 

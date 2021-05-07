@@ -10,7 +10,7 @@ use MarcAndreAppel\Laraberg\Events\ContentRendered;
 use MarcAndreAppel\Laraberg\Events\ContentUpdated;
 use MarcAndreAppel\Laraberg\Helpers\BlockHelper;
 use MarcAndreAppel\Laraberg\Helpers\EmbedHelper;
-use MarcAndreAppel\LaravelUuids\Uuids;
+use MarcAndreAppel\LaravelUuids\WithUuids;
 
 /**
  * @property string rendered_content
