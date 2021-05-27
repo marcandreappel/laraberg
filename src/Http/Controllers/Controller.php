@@ -11,6 +11,10 @@ class Controller extends BaseController
 {
     public function ok(array|Collection $data = ['message' => 'ok'], int $code = 200): Response
     {
+        if ($data instanceof Collection) {
+            $data = $data->toArray();
+        }
+
         return $this->response($data, $code);
     }
 
