@@ -5,5 +5,5 @@ namespace MarcAndreAppel\Laraberg\Contracts;
 
 interface TransformerContract
 {
-    public function render(string $html): string;
+    public function parse(string $html): string;
 }
