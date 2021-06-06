@@ -9,4 +9,5 @@ return [
         "block"   => MarcAndreAppel\Laraberg\Models\Block::class,
         "content" => MarcAndreAppel\Laraberg\Models\Content::class,
     ],
+    'transformers' => [],
 ];

@@ -10,11 +10,13 @@ use MarcAndreAppel\Laraberg\Events\ContentRendered;
 use MarcAndreAppel\Laraberg\Events\ContentUpdated;
 use MarcAndreAppel\Laraberg\Helpers\BlockHelper;
 use MarcAndreAppel\Laraberg\Helpers\EmbedHelper;
+use MarcAndreAppel\Laraberg\Helpers\TransformerHelper;
 use MarcAndreAppel\LaravelUuids\WithUuids;
 
 /**
  * @property string rendered_content
  * @property string raw_content
+ * @property string compiled_content
  */
 class Content extends Model
 {
@@ -42,6 +44,7 @@ class Content extends Model
 
     public function setContent(string $html)
     {
+        $this->compiled_content = TransformerHelper::render($html);
         $this->raw_content = $this->fixEmptyImages($html);
         $this->renderRaw();
     }
