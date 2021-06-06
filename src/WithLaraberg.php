@@ -31,6 +31,15 @@ trait WithLaraberg
         return $this->morphOne(Content::class, 'contentable');
     }
 
+    public function getEditorCompiledAttribute(): ?string
+    {
+        if (!$this->larabergContent) {
+            return null;
+        }
+
+        return $this->larabergContent->compiled_content;
+    }
+
     public function getEditorContentAttribute(): string
     {
         return $this->larabergContent ? $this->larabergContent->render() : '';
