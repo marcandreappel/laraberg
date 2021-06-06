@@ -31,5 +31,8 @@
     "laravel": {
       "providers": "MarcAndreAppel\\Laraberg\\LarabergServiceProvider"
     }
+  },
+  "require-dev": {
+    "orchestra/testbench": "^6.0"
   }
 }
