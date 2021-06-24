@@ -9,7 +9,7 @@ class LarabergServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->publishesToGroupes([
+        $this->publishesToGroups([
             __DIR__.'/config/laraberg.php' => config_path('laraberg.php')
         ], ['laraberg', 'laraberg:config']);
 
