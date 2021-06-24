@@ -9,19 +9,29 @@ class LarabergServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->publishes([__DIR__.'/config/laraberg.php' => config_path('laraberg.php')], 'config');
+        $this->publishesToGroupes([
+            __DIR__.'/config/laraberg.php' => config_path('laraberg.php')
+        ], ['laraberg', 'laraberg:config']);
 
         require __DIR__.'/Http/routes.php';
 
         $this->loadMigrationsFrom(__DIR__.'/database/migrations');
-        $this->publishes([__DIR__.'/../public' => public_path('vendor/laraberg')], 'public');
+        
+        $this->publishesToGroups([
+            __DIR__.'/../public' => public_path('vendor/laraberg'),
+        ], ['laraberg', 'laraberg:assets']);
     }
 
-//    public function register()
-//    {
-//        $this->app->singleton(Laraberg::class, function () {
-//            return new Laraberg();
-//        });
-//        $this->app->alias(Laraberg::class, 'laraberg');
-//    }
+    protected function publishesToGroups(array $paths, $groups = null)
+    {
+        if (is_null($groups)) {
+            $this->publishes($paths);
+
+            return;
+        }
+
+        foreach ((array) $groups as $group) {
+            $this->publishes($paths, $group);
+        }
+    }
 }
